@@ -33,6 +33,17 @@
 		    return false;
 	    });
     }
+
+    $('.delete-button').click(function(){
+      var current_element = $(this);
+      var task-id = $(this).attr('id');
+
+      $.post('includes/delta-task.php', {id: task-id}, function(){
+	  current_element.parent().fadeout("fast", function(){
+	  	$(this).remove();
+	  });
+	});
+  });
 </script>
 
 </html>
